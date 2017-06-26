@@ -1,0 +1,21 @@
+---
+machine:
+  node:
+    version: 8
+  environment:
+    YARN_VERSION: 0.24.6
+    PATH: "${PATH}:${HOME}/.yarn/bin"
+
+
+dependencies:
+  pre:
+    # install yarn if it's not already installed
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      fi
+  override:
+    - yarn install
+  cache_directories:
+    - ~/.yarn
+    - ~/.yarn-cache
