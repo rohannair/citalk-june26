@@ -1,0 +1,4 @@
+mydb
+node_modules
+.env
+coverage
