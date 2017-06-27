@@ -21,6 +21,13 @@ it('should allow all GET routes', () => {
   })
 })
 
+it('should CONFIRM THAT TYLER IS AWESOME', () => {
+  var x = 'TYLER IS AWESOME'
+  expect(true).toBe(true)
+  })
+
+
+
 it('should 404 on unknown POST routes', () =>
   request(app).get('/xyz').then(res => {
     expect(res.statusCode).toBe(200)
